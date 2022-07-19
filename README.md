@@ -1,7 +1,7 @@
 # bivouac
 Your go to mobile hike tracking application
 
-# Scratch Project GitHub Tutorial
+# Iteration Project GitHub Tutorial
 
 <a href="https://excalidraw.com/#json=oPciaBeml8N1pVKFR27uB,cSQoBdLi9vR_jbHPsHer8w" target="_blank">Visual Guild Linked Here</a>
 
