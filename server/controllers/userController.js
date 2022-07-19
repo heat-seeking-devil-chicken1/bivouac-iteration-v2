@@ -28,11 +28,11 @@ userController.createUser = async (req, res, next) => {
 
     User.create({ firstName, lastName, location, email, password: hashedPassword }, (err, user) => {
         if (err) return next({
-        log: 'Error creating user at userController.createUser',
-        status: 500,
-        message: { err: 'An error occurred creating user' },
+          log: 'Error creating user at userController.createUser',
+          status: 500,
+          message: { err: 'An error occurred creating user' },
         });
-        req.newUserID = user._id.toString();
+        req.newUserID = user._id.toString(); //should it be res? Not sure did not touch.
         return next();
     });
   }
