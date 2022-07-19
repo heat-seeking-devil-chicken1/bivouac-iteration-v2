@@ -8,7 +8,7 @@ Your go to mobile hike tracking application
 ## Creating a New Branch
 
 1. Clone repo to your local system.
-- `git clone https://github.com/GoblinSharkies/scratch-project.git`
+- `git clone https://github.com/heat-seeking-devil-chicken1/bivouac-iteration-v2.git`
 
 2. Create or go to `dev` branch
 - `git checkout dev`
