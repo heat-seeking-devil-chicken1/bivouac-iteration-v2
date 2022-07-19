@@ -1,36 +1,44 @@
-import React from 'react';
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-// import Home from "./src/pages/Home";
-// import Login from "./src/pages/Login";
-// import Register from "./src/pages/Register";
+import React, {useState} from 'react';
+import { BrowserRouter as Router, Navigate, Route, Routes } from "react-router-dom";
+import SignupScreen from "./screens/signupScreen";
+import LoginScreen from "./screens/loginScreen";
+import DashboardScreen from "./screens/dashboardScreen";
+import NavBar from "./components/navBar";
+import AddHikeScreen from "./screens/addHikeScreen";
+// import EditHikeScreen from "./screens/editHikeScreen";
+import "./index.css";
 
 const App = () => {
 
+  const [user, setUser] = useState()
+
   return (
     <div className="App">
-        <div>Update</div>
-      {/* <BrowserRouter>
-        <Routes> */}
-          {/* <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/register' element={<Register />} /> */}
-        {/* </Routes>
-      </BrowserRouter>  */}
+      <Router>
+      <NavBar />
+        <Routes>
+          <Route path='/addhike' element={<ProtectedRoute><AddHikeScreen /></ProtectedRoute>} />
+          <Route path='/signup' element={<SignupScreen />} />  
+          <Route path='/login' element={<LoginScreen/>} />   
+          {/* <Route path='/edithike' element={<EditHikeScreen/>} />              */}
+          <Route path='/' element={<ProtectedRoute><DashboardScreen/></ProtectedRoute>} />            
+        </Routes>    
+      </Router>
     </div>
   );
 }
 
-// export function ProtectedRoute(props){
+export function ProtectedRoute(props){
 
-//   if(localStorage.getItem('user'))
-//   { 
-//     return props.children
+  if (localStorage.getItem('user'))
+  { 
+    return props.children
     
-//   } else {
+  } else {
 
-//    return <Navigate to='/login'/>
-//   }
+   return <Navigate to='/login'/>
+  }
 
-// }
+}
 
 export default App;

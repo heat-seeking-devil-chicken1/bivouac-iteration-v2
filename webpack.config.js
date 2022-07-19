@@ -25,14 +25,18 @@ module.exports = {
         }
       },
       {
-        test: /\.s[ac]ss$/i,
-        use: [ "style-loader", "css-loader", "sass-loader" ],
+        test: /.(css|scss)$/i,
+        use: [ 'style-loader', 'css-loader', 'sass-loader' ],
       },
       {
-        test: /\.(png|jpe?g|gif)$/i,
+        test: /\.(png|jpe?g|gif|mp4)$/i,
         use: [
           {
             loader: 'file-loader',
+            options: {
+              name: "[name].[ext]",
+              outputPath: "assets/"
+          }
           },
         ],
       }
@@ -45,11 +49,12 @@ module.exports = {
     })
   ],
   devServer: {
-    port: 8081,
+    port: 8082,
     hot: true,
+    historyApiFallback: true,
     static: {
-      publicPath: '/dist',
-      directory: path.resolve(__dirname, 'dist')
+      publicPath: '/',
+      directory: path.resolve(__dirname, 'dist'),
     },
     proxy: {
       '/api': 'http://localhost:3000'
