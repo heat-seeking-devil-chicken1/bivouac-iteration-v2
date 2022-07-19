@@ -6,8 +6,7 @@
   "scripts": {
     "start": "NODE_ENV=production nodemon server/server.js --open",
     "build": "webpack",
-    "dev": "NODE_ENV=development nodemon server/server.js & NODE_ENV=development webpack serve",
-    "michael": "concurrently \"cross-env NODE_ENV=development node server/server.js\" \"cross-env NODE_ENV=development webpack serve --open\""
+    "dev": "NODE_ENV=development nodemon server/server.js & NODE_ENV=development webpack serve"
   },
   "repository": {
     "type": "git",
@@ -33,7 +32,6 @@
     "mongodb": "^4.8.0",
     "mongoose": "^6.4.4",
     "nodemon": "^2.0.19",
-    "passport-google-oauth2": "^0.2.0",
     "react": "^18.2.0",
     "react-background-video-player": "^1.1.8",
     "react-dom": "^18.2.0",
