@@ -3,12 +3,17 @@ import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 import HikeFeed from '../components/hikeFeed';
 import ProfileInfo from '../components/profileInfo'
+import { BrowserRouter as Router, Navigate, Route, Routes, Link } from "react-router-dom";
 //import AddHikeScreen from './addHikeScreen'
 
 
 const DashboardScreen = () => {
   const [hikesData, setHikesData] = useState([]);
   const [userData, setUserData] = useState([]);
+  const [showHikes, setShowHikes] = useState(true);
+  const [showRecommended, setShowRecommended] = useState(false);
+  const [showFavorites, setShowFavorites] = useState(false);
+
   const user = JSON.parse(localStorage.getItem('user'));
 
   const getHikes = async () => {
@@ -105,13 +110,51 @@ useEffect(() => {
 
 //console.log('in dashboard screen', {hikesData})
 
+const clickHandler = (e) => {
+  console.log('clicked me', e)
+  if (e === 'hikes') {
+    setShowHikes(true)
+    setShowRecommended(false)
+    setShowFavorites(false)
+  }
+  if (e === 'reccomended') {
+    setShowHikes(false)
+    setShowRecommended(true)
+    setShowFavorites(false)
+  }
+  if (e === 'faves') {
+    setShowHikes(false)
+    setShowRecommended(false)
+    setShowFavorites(true)
+  }
+
+}
+
   return (
     <div className="dashboard">
       <div className="profile">
         {user && <ProfileInfo user={user} />}
       </div>
       <div className="hikeFeed">
-        <HikeFeed hikesData = {hikesData} deleteHikes = {deleteHikes} editHikes = {editHikes}/>
+        <header>
+          <button value='hikes' onClick={e=>{clickHandler(e.target.value)}}>My Hikes</button>
+          <button value='reccomended' onClick={e=>{clickHandler(e.target.value)}}>Recommended</button>
+          <button value='faves' onClick={e=>{clickHandler(e.target.value)}}>Favorites</button>
+        </header>
+      {showHikes && (
+        <HikeFeed 
+          hikesData = {hikesData} 
+          deleteHikes = {deleteHikes} 
+          editHikes = {editHikes}
+        />
+      )}
+      {showRecommended && (
+        <div>Reccomended componentent goes here</div>
+      )}
+      {showFavorites && (
+        <div>Favorites</div>
+      )}
+        
       </div>
     </div>
   )
