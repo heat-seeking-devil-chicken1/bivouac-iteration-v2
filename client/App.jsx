@@ -20,7 +20,7 @@ const App = () => {
           <Route path='/addhike' element={<ProtectedRoute><AddHikeScreen /></ProtectedRoute>} />
           <Route path='/signup' element={<SignupScreen />} />  
           <Route path='/login' element={<LoginScreen/>} />   
-          {/* <Route path='/edithike' element={<EditHikeScreen/>} />              */}
+          {/* <Route path='/edithike' element={<EditHikeScreen/>} />*/}
           <Route path='/' element={<ProtectedRoute><DashboardScreen/></ProtectedRoute>} />            
         </Routes>    
       </Router>

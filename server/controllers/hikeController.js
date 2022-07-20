@@ -93,4 +93,6 @@ hikeController.deleteOneHike = async (req, res, next) => {
 }
 
 
+
+
 module.exports = hikeController;
