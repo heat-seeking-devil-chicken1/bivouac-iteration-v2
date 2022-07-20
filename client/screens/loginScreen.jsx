@@ -14,10 +14,11 @@ const LoginScreen = ({user, setUser}) => {
     const email = document.getElementById('loginEmail')
     const password = document.getElementById('loginPassword');
     try{
+      console.log("starting login try")
       let response = await axios.post('/api/users/login', { email: email.value, password: password.value },  { proxy:{
         host: 'localhost',
         port: 3000}})
-
+      console.log('response', response);
     //Make a post request to /api/users/login
     //body includes email, password
     localStorage.setItem(
@@ -26,8 +27,13 @@ const LoginScreen = ({user, setUser}) => {
     );
     navigate('/');
   }
+<<<<<<< HEAD
   catch(error){
     console.log('error in logging in', error)
+=======
+  catch(err){
+    console.log('error in logging in', err)
+>>>>>>> dev
   }
   }
   //to check if user is already logged in, navigate to homepage
