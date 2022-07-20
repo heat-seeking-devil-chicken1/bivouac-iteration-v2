@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const userController = require ('../controllers/userController');
-const favoriteController = require ('../controllers/favoriteController');
+
 
 
 
@@ -26,24 +26,24 @@ router.post('/login', userController.verifyUser, (req,res) => {
 // routing favorites below:
 
 // get method to iterate over the arrays in the frontend
-router.get('/favorites', favoriteController.getFavorites, (req,res) => {
+router.get('/favorites/:id', userController.getFavorites, (req,res) => {
   // Review: to see how data is being returned
   return res.status(200).json(res.locals.favorites);
 });
 
 
 //Review: how data will be returned
-router.post('/save/favorite', favoriteController.saveFavorite, (req,res) => {
+router.put('/saveFave/:id', userController.saveFavorite, (req,res) => {
   // Review: to see how data is being returned
   return res.status(200);
 });
 
 //use this to delete favorite
-router.delete('/favorite', 
-  favoriteController.deleteOneFavorite,
+router.put('/favorites/:userid/:faveid', 
+  userController.deleteOneFavorite,
   (req,res) => {
   // Review: to see how data is being returned
-  return res.status(200).json(res.locals.deletedFavorite);
+  return res.status(200);
 });
 
 
