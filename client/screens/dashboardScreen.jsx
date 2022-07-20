@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from 'axios'
 import HikeFeed from '../components/hikeFeed';
 import ProfileInfo from '../components/profileInfo'
+import Recommendations from '../components/recommendations'
 import { BrowserRouter as Router, Navigate, Route, Routes, Link } from "react-router-dom";
 //import AddHikeScreen from './addHikeScreen'
 
@@ -10,7 +11,7 @@ import { BrowserRouter as Router, Navigate, Route, Routes, Link } from "react-ro
 const DashboardScreen = () => {
   const [hikesData, setHikesData] = useState([]);
   const [userData, setUserData] = useState([]);
-  const [showDashboard, setShowDashboard] = useState('hikes');
+  const [showDashboard, setShowDashboard] = useState('');
 
   const user = JSON.parse(localStorage.getItem('user'));
 
@@ -62,52 +63,52 @@ const deleteHikes = async (hikeID) => {
   }
 }
 
-const editHikes = async (
-  title,
-  date,
-  type,
-  location,
-  distance,
-  difficulty,
-  crowds,
-  notes,
-  id
-) => {
-  console.log('hikeID in editHikes', title,
-  date,
-  type,
-  location,
-  distance,
-  difficulty,
-  crowds,
-  notes,
-  id);
-  try {
-    await axios.put(`api/hikes/${id}`, {
-      payload: {
-        title,
-        date,
-        type,
-        location,
-        distance,
-        difficulty,
-        crowds,
-        notes,
-        id
-      },
-    });
-    getHikes();
-  } catch (error) {
-    console.log('error in edithikes function');
-  }
-};
+// const editHikes = async (
+//   title,
+//   date,
+//   type,
+//   location,
+//   distance,
+//   difficulty,
+//   crowds,
+//   notes,
+//   id
+// ) => {
+//   console.log('hikeID in editHikes', title,
+//   date,
+//   type,
+//   location,
+//   distance,
+//   difficulty,
+//   crowds,
+//   notes,
+//   id);
+//   try {
+//     await axios.put(`api/hikes/${id}`, {
+//       payload: {
+//         title,
+//         date,
+//         type,
+//         location,
+//         distance,
+//         difficulty,
+//         crowds,
+//         notes,
+//         id
+//       },
+//     });
+//     getHikes();
+//   } catch (error) {
+//     console.log('error in edithikes function');
+//   }
+// };
 
-useEffect(() => {
-  getHikes();
-}, []);
+// useEffect(() => {
+//   getHikes();
+// }, []);
 
 //console.log('in dashboard screen', {hikesData})
-
+console.log('started dashboard')
 const clickHandler = (e) => {
   // console.log('clicked me', e)
   setShowDashboard(e)
@@ -124,15 +125,15 @@ const clickHandler = (e) => {
           <button value='recommended' onClick={e=>{clickHandler(e.target.value)}}>Recommended</button>
           <button value='faves' onClick={e=>{clickHandler(e.target.value)}}>Favorites</button>
         </header>
-      {showDashboard === 'hikes' && (
+      {/* {showDashboard === 'hikes' && (
         <HikeFeed 
           hikesData = {hikesData} 
           deleteHikes = {deleteHikes} 
-          editHikes = {editHikes}
+          // editHikes = {editHikes}
         />
-      )}
+      )} */}
       {showDashboard === 'recommended' && (
-        <div>Reccomended componentent goes here</div>
+        <div><Recommendations/></div>
       )}
       {showDashboard === 'faves' && (
         <div>Favorites</div>

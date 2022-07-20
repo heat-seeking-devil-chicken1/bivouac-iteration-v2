@@ -5,7 +5,7 @@ const app = express();
 const logger = require('morgan');
 const session = require('express-session');
 
-const SQLiteStore = require('connect-sqlite3')(session);
+// const SQLiteStore = require('connect-sqlite3')(session);
 
 const PORT = 3000;
 
@@ -32,6 +32,9 @@ if (process.env.NODE_ENV === 'production') {
   });
 };
 
+
+//Morgan session ->
+// app.use(express.static(path.join(__dirname, 'public')));;; serves static public file which we may need to change to d
 // //Morgan session ->
 // // app.use(express.static(path.join(__dirname, 'public')));;; serves static public file which we may need to change to d
 // app.use(session({
