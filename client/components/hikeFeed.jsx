@@ -3,7 +3,7 @@ import HikeCard from './hikeCard';
 //import {hikes} from '../data.js'
 import uuid from 'react-uuid';
 
-const HikeFeed = ({hikesData, deleteHikes, editHikes}) => {
+const HikeFeed = ({hikesData, deleteHikes/*, editHikes*/}) => {
 
 
 
@@ -17,7 +17,7 @@ const HikeFeed = ({hikesData, deleteHikes, editHikes}) => {
       I am hike card container/Hike feed component
       {
         hikesData.reverse().map((hike) => (
-          <HikeCard key={uuid()} editHikes= {editHikes} deleteHikes={deleteHikes} hike={hike} />
+          <HikeCard key={uuid()} /*editHikes= {editHikes}*/ deleteHikes={deleteHikes} hike={hike} />
         ))
       }
       I am more
