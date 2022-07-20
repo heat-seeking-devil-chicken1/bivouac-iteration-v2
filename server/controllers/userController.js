@@ -60,4 +60,76 @@ userController.verifyUser = async (req, res, next) => {
   });
 }
 
+
+// used to display the favorites under favorites component
+userController.getFavorites = async (req, res, next) => {
+  const {id} = req.params;
+  try {
+    //reference the way favorites are stored to return from database
+    const result = await User.findOne({_id: id}); 
+
+    // review how the result is returned
+    res.locals.favorites = result;
+
+    return next();
+  } catch (error) {
+    return next({
+      log: 'Could not return favorites in User.getFavorites' + error,
+      status: 400,
+      message: { err: 'error in getting all favorites' }
+    });
+  };
+};
+
+
+// Review: look at how the data is being sent back to the body
+// Will store the data from the API's
+userController.saveFavorite = async (req, res, next) => {
+  const { title, shortDescription, state, duration, location, longitude, latitude } = req.body;
+  const { id } = req.params;
+
+  try {
+    // saving as type favorite to reference when getting
+    const result = await User.updateOne({_id: id}, 
+      {$push: {favorite: {title, shortDescription, state, duration, location, longitude, latitude}}})
+    // res.locals.newFavorites = result;
+    console.log("favorites created successfully")
+    return next()
+
+  } catch (error) {
+    return next({
+      log: 'Could not post the favorite in userController.saveFavorites' + error,
+      status: 400,
+      message: { err: 'error in adding to favorites' }
+    });
+  };
+};
+
+// used to remove an item from favorties
+userController.deleteOneFavorite = async (req, res, next) => {
+  //will be sent from the front end when we query the data.
+  // const user = JSON.parse(localStorage.getItem('user'));
+  // const userid = user._id;
+  // const { userid, faveid } = req.body;
+  const { userid, faveid } = req.params;
+  console.log('req.params userController.deleteOneFavorite', req.params)
+  try {
+    let deletedFavorite = await User.findByIdAndUpdate(
+      userid, 
+      // {$pull: {favorite: {_id: faveid}}});
+      {$pull: {"favorite.$._id": faveid}},
+      {new: true});
+    console.log('deleted the fave successfully')
+    res.locals.deletedFavorite = deletedFavorite;
+    return next()
+  } catch (error) {
+    return next({
+      log: 'Could not delete in userController.deleteOneFavorite' + error,
+      status: 400,
+      message: { err: 'error in deleting favorite' }
+    })
+  }
+}
+
+
 module.exports = userController;

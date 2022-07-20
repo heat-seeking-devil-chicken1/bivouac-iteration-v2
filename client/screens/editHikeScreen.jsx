@@ -20,7 +20,6 @@ const EditHikeScreen = ({ hike, edit, setIsEdit }) => {
     //console.log('before post request')
     //Make a post request to /api/addHike
     //body includes title, location, date, difficulty, distance, crowds
-    // ( async() => {
     let response = await axios.put(`/api/hikes/${hike._id}`, { title: title.value, location: location.value, date: date.value, difficulty: difficulty.value,  crowds: crowds.value, distance: distance.value, notes: notes.value, type: type.value, userid: user._id }, 
     { proxy:{ host: 'localhost', port: 3000}})
 

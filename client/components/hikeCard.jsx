@@ -4,7 +4,7 @@ import EditHikeScreen, {handleUpdate} from '../screens/editHikeScreen.jsx';
 import {TiDeleteOutline} from 'react-icons';
 
 
-const HikeCard = ({hike, deleteHikes, editHikes}) => {
+const HikeCard = ({hike, deleteHikes, /*editHikes*/}) => {
 
   const navigate = useNavigate()
 
@@ -14,7 +14,7 @@ const HikeCard = ({hike, deleteHikes, editHikes}) => {
 
   return (
     <div className='hikeCard'>
-      {edit && <EditHikeScreen hike={hike} editHikes={editHikes} edit={edit} setIsEdit={setIsEdit} />}
+      {edit && <EditHikeScreen hike={hike} /*editHikes={editHikes}*/ edit={edit} setIsEdit={setIsEdit} />}
       {!edit && <div >
       <p id='date'>{hike.date}</p>
       <div className='titleBox'>

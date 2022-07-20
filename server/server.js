@@ -5,6 +5,8 @@ const app = express();
 const session = require('express-session');
 const passport = require('passport');
 
+// const SQLiteStore = require('connect-sqlite3')(session);
+
 const PORT = 3000;
 
 // Defining routes here:
