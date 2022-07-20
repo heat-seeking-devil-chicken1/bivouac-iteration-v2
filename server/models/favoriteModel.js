@@ -8,7 +8,8 @@ const FavoriteSchema = new mongoose.Schema({
   duration: { type : String, required : false},
   latitude: {type: String, required: false},
   longitude: {type: String, required: false},
-  location: {type: String, required: false}
+  location: {type: String, required: false},
+  type: {type: String, required: false}
 });
 
 const Favorite = mongoose.model('favorites', FavoriteSchema)

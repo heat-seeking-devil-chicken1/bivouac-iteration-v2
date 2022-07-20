@@ -4,9 +4,7 @@ const hikeController = {};
 
 hikeController.getHikes = async (req, res, next) => {
   try {
-    const result = await Hike.find({userid: req.body.userid}); //get hikes of the current logged in user
-    // if (!result.length) throw 'Could not get all hikes';
-
+    const result = await Hike.find({userid: req.body.userid}); 
     res.locals.hikes = result;
     return next();
   } catch (error) {
@@ -75,7 +73,6 @@ hikeController.createHike = async (req, res, next) => {
       message: { err: 'error in creating hike' }
     });
   };
-  //return next();
 };
 
 
