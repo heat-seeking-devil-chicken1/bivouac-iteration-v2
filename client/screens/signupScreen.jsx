@@ -45,9 +45,9 @@ const SignupScreen = () => {
 
   return (
     <div className="signupBackground">
-      <video id="background-video" autoPlay loop muted poster="/assets/lake.jpg">
+      {/* <video id="background-video" autoPlay loop muted poster="/assets/lake.jpg">
         <source src="/assests/Forest.mp4" type="video/mp4" />
-      </video>
+      </video> */}
       <div className="signupScreen-container">
         <h1>Create your account</h1>
         <input className="signupInputs" type="text" id="firstName" name="firstName" placeholder="First Name" required />
