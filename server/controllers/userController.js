@@ -32,7 +32,7 @@ userController.createUser = async (req, res, next) => {
           status: 500,
           message: { err: 'An error occurred creating user' },
         });
-        req.newUserID = user._id.toString(); //should it be res? Not sure did not touch. What is the purpose of this line?
+        req.newUserID = user._id.toString(); //should it be res? Not sure did not touch.
         return next();
     });
   }

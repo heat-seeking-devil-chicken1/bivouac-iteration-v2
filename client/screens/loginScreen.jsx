@@ -27,8 +27,8 @@ const LoginScreen = ({user, setUser}) => {
     );
     navigate('/');
   }
-  catch(error){
-    console.log('error in logging in', error);
+  catch(err){
+    console.log('error in logging in', err)
   }
   }
   //to check if user is already logged in, navigate to homepage
