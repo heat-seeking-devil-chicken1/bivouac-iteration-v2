@@ -4,6 +4,7 @@ import axios from 'axios'
 import HikeFeed from '../components/hikeFeed';
 import ProfileInfo from '../components/profileInfo'
 import Recommendations from '../components/recommendations'
+import Favorites from '../components/favorites'
 import { BrowserRouter as Router, Navigate, Route, Routes, Link } from "react-router-dom";
 //import AddHikeScreen from './addHikeScreen'
 
@@ -125,18 +126,18 @@ const clickHandler = (e) => {
           <button value='recommended' onClick={e=>{clickHandler(e.target.value)}}>Recommended</button>
           <button value='faves' onClick={e=>{clickHandler(e.target.value)}}>Favorites</button>
         </header>
-      {/* {showDashboard === 'hikes' && (
+      {showDashboard === 'hikes' && (
         <HikeFeed 
           hikesData = {hikesData} 
           deleteHikes = {deleteHikes} 
           // editHikes = {editHikes}
         />
-      )} */}
+      )}
       {showDashboard === 'recommended' && (
-        <div><Recommendations/></div>
+        <Recommendations />
       )}
       {showDashboard === 'faves' && (
-        <div>Favorites</div>
+        <Favorites />
       )}
         
       </div>
