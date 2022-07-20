@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import { BrowserRouter as Router, Navigate, Route, Routes } from "react-router-dom";
-import SignupScreen from "./screens/signupScreen";
-import LoginScreen from "./screens/loginScreen";
-import DashboardScreen from "./screens/dashboardScreen";
-import NavBar from "./components/navBar";
-import AddHikeScreen from "./screens/addHikeScreen";
+import SignupScreen from "./screens/signupScreen.jsx";
+import LoginScreen from "./screens/loginScreen.jsx";
+import DashboardScreen from "./screens/dashboardScreen.jsx";
+import NavBar from "./components/navBar.jsx";
+import AddHikeScreen from "./screens/addHikeScreen.jsx";
 // import EditHikeScreen from "./screens/editHikeScreen";
 import "./index.css";
 

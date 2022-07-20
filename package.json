@@ -3,11 +3,14 @@
   "version": "1.0.0",
   "description": "Your go to mobile hike tracking application",
   "main": "index.js",
+
   "scripts": {
+    "clean": "rm dist/bundle.js",
     "start": "NODE_ENV=production nodemon server/server.js --open",
     "build": "webpack",
-    "dev": "NODE_ENV=development nodemon server/server.js & NODE_ENV=development webpack serve",
-    "michael": "concurrently \"cross-env NODE_ENV=development node server/server.js\" \"cross-env NODE_ENV=development webpack serve --open\""
+    "dev": "NODE_ENV=development nodemon server/server.js & NODE_ENV=development webpack serve --open",
+    "michael": "concurrently \"cross-env NODE_ENV=development node server/server.js\" \"cross-env NODE_ENV=development webpack serve --open\"",
+    "test": "jest"
   },
   "repository": {
     "type": "git",

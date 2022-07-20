@@ -3,8 +3,8 @@ const path = require('path');
 const express = require('express');
 const app = express();
 const PORT = 3000;
-const indexRouter = require('./routes/googleIndex.js');
-const authRouter = require('./routes/googleRoute.js');
+// const indexRouter = require('./routes/googleIndex.js');
+// const authRouter = require('./routes/googleRoute.js');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

@@ -18,6 +18,7 @@ router.post('/signup', userController.createUser, (req, res) => {
 
 //login
 router.post('/login', userController.verifyUser, (req,res) => {
+  console.log('goes to log')
   return res.status(200).send(res.locals.user);
 });
 
@@ -27,7 +28,7 @@ router.post('/login', userController.verifyUser, (req,res) => {
 // get method to iterate over the arrays in the frontend
 router.get('/favorites', favoriteController.getFavorites, (req,res) => {
   // Review: to see how data is being returned
-  return res.status(200).send(res.locals.favorites);
+  return res.status(200).json(res.locals.favorites);
 });
 
 
@@ -42,7 +43,7 @@ router.delete('/favorite',
   favoriteController.deleteOneFavorite,
   (req,res) => {
   // Review: to see how data is being returned
-  return res.status(200);
+  return res.status(200).json(res.locals.deletedFavorite);
 });
 
 

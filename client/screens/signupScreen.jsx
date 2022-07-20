@@ -64,7 +64,7 @@ const SignupScreen = () => {
         <input className="signupInputs" type="password" id="password" name="password" placeholder="Password" required />
         <Link to="/login">Already registered? Click here to login!</Link>
         <button className="signupButton" id='signup-submit' onClick={() => {handleSubmit(); navigate('/')}}>Sign Up</button>
-        <GoogleOauth />
+        {/* <GoogleOauth /> */}
         {success && <p>Success, redirecting... login with your credentials</p>}
       </div>
     </div>
