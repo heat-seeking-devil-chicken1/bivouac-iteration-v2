@@ -10,8 +10,8 @@ const SQLiteStore = require('connect-sqlite3')(session);
 const PORT = 3000;
 
 // Defining routes here:
-const indexRouter = require('./routes/googleIndex.js');
-const authRouter = require('./routes/googleRoute.js');
+// const indexRouter = require('./routes/googleIndex.js');
+// const authRouter = require('./routes/googleRoute.js');
 const userRoute = require('./routes/userRoute');
 const hikeRoute = require('./routes/hikeRoute');
 
@@ -32,14 +32,14 @@ if (process.env.NODE_ENV === 'production') {
   });
 };
 
-//Morgan session ->
-// app.use(express.static(path.join(__dirname, 'public')));;; serves static public file which we may need to change to d
-app.use(session({
-  secret: 'keyboard cat',
-  resave: false,
-  saveUninitialized: false,
-  store: new SQLiteStore({ db: 'sessions.db', dir: './var/db' })
-}));
+// //Morgan session ->
+// // app.use(express.static(path.join(__dirname, 'public')));;; serves static public file which we may need to change to d
+// app.use(session({
+//   secret: 'keyboard cat',
+//   resave: false,
+//   saveUninitialized: false,
+//   store: new SQLiteStore({ db: 'sessions.db', dir: './var/db' })
+// }));
 
 app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname, '../index.html'), function(err) {
