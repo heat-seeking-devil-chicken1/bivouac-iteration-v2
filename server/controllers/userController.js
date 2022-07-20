@@ -41,6 +41,7 @@ userController.createUser = async (req, res, next) => {
 userController.verifyUser = async (req, res, next) => {
   const userEmail = req.body.email;
   const userPassword = req.body.password;
+  console.log('started userController.verifyUser')
   User.findOne({email : req.body.email}, (err, user) => {
     req.newUserID = user._id.toString();
       bcrypt
