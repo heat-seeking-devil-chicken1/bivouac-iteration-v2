@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import uuid from 'react-uuid';
 import RecsCard from './recsCard.jsx'
 
-const recommendations = () => {
+const Recommendations = () => {
   const [recsData, setRecsData] = useState([]);
 
   const getRecs = async () => {
@@ -17,7 +17,7 @@ const recommendations = () => {
       setRecsData(recsResponse.data);
     }
     catch (error){
-      console.log('error in getRecs function')
+      console.log('error in getRecs function: ', error)
     }
   }
     
