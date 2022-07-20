@@ -32,8 +32,11 @@ if (process.env.NODE_ENV === 'production') {
   });
 };
 
+
 //Morgan session ->
 // app.use(express.static(path.join(__dirname, 'public')));;; serves static public file which we may need to change to d
+// //Morgan session ->
+// // app.use(express.static(path.join(__dirname, 'public')));;; serves static public file which we may need to change to d
 // app.use(session({
 //   secret: 'keyboard cat',
 //   resave: false,

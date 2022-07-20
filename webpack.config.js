@@ -2,20 +2,19 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  mode: process.env.NODE_ENV,
-  entry: path.join(__dirname, './client/index.js'),
+  mode: process.env.NODE_ENV || 'production',
+  entry: ['./client/index.js'],
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    publicPath: '/',
+    path: path.resolve(__dirname, 'client'),
     filename: 'bundle.js'
   },
   resolve: {
-    extensions: [".js", ".jsx"],
+    extensions: ['', '.js', '.jsx'],
   },
   module: {
     rules: [
       {
-        test: /\.jsx?/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
@@ -28,6 +27,20 @@ module.exports = {
         test: /.(css|scss)$/i,
         use: [ 'style-loader', 'css-loader', 'sass-loader' ],
       },
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+              modules: true
+            }
+          }
+        ],
+        include: /\.module\.css$/
+      },      
       {
         test: /\.(png|jpe?g|gif|mp4)$/i,
         use: [
@@ -44,17 +57,14 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Development',
-      template: './index.html'
+      filename: 'index.html',
+      template: path.resolve(__dirname, './index.html')
     })
   ],
   devServer: {
-    port: 8082,
-    hot: true,
-    historyApiFallback: true,
     static: {
       publicPath: '/',
-      directory: path.resolve(__dirname, 'dist'),
+      directory: path.resolve(__dirname, 'client'),
     },
     proxy: {
       '/api': 'http://localhost:3000'
