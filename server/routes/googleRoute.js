@@ -15,16 +15,15 @@ passport.use(new GoogleStrategy(
   },
   
   // THIS FUNCTION NEEDS WORK. 9:19 PM 07-20-22. Last left off here
-  // UPADTE: Having trouble with the google returning data. Tried multiple times using scope
   function(accessToken, refreshToken, profile, done) {
     console.log('wow in callback function');
-    console.log(profile); //empty object currently
+    console.log(profile);
   }
 ));
 
 // auth with google
 router.get('/google', passport.authenticate('google', { scope:
-  [ 'profile' ]
+  ['profile']
 }));
 
 // callback route for google to redirect to
