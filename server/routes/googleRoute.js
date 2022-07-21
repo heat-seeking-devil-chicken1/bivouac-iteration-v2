@@ -51,7 +51,8 @@ router.get('/google/redirect', passport.authenticate('google', {failureRedirect:
   const googleData = req.session.passport.user;
   console.log('googleData: ', googleData);
   // res.status(200).send(googleData); // where do you get sent to ? local storage? 
-  res.redirect('/dash') // need a way to get to dashboard which is ("/") how do we get around this???
+  // res.redirect('/dash') // need a way to get to dashboard which is ("/") how do we get around this???
+  res.send(googleData) // need a way to get to dashboard which is ("/") how do we get around this???
 });
 
 

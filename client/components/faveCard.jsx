@@ -40,7 +40,9 @@ const FaveCard = ({favesInfo}) => {
   // console.log('faveCards started running')
   return (
     <div className='faveCard recFavCard'>
-      {title} Location: {location}, {state} Duration: {duration} <br/>
+      <div>{title}</div> 
+      <div>Location: {location}, {state} </div>
+      <div>Duration: {duration} </div>
       Description: {shortDescription}
       <form>
         <input type='submit' name='submit' value='Delete' onClick={deleteFave}/>

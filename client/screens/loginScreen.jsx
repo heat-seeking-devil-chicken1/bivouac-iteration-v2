@@ -23,7 +23,7 @@ const LoginScreen = ({user, setUser}) => {
     //body includes email, password
     localStorage.setItem(
       'user',
-      JSON.stringify({ ...response.data})
+      JSON.stringify({ ...response.data, password: "" })
     );
     navigate('/');
   }
@@ -31,7 +31,6 @@ const LoginScreen = ({user, setUser}) => {
     console.log('error in logging in', err)
   }
   }
-
   //to check if user is already logged in, navigate to homepage
 
   useEffect(() => {
