@@ -12,11 +12,13 @@ const hikeRoute = require('./routes/hikeRoute');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
 app.use(session({
   secret: 'keyboard cat',
   resave: false,
   saveUninitialized: false,
 }));
+
 app.use('/api/login', authRouter);
 app.use("/api/users", userRoute);
 app.use('/api/hikes', hikeRoute);
