@@ -15,7 +15,7 @@ const Favorites = () => {
     try {
       const favesResponse = await axios.get(`/api/users/favorites/${userid}`);
 
-      console.log('favesResponse.favorites: ', favesResponse.data.favorite)
+      // console.log('favesResponse.favorites: ', favesResponse.data.favorite)
       setFavesData(favesResponse.data.favorite);
 
     }

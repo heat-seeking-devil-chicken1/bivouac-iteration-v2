@@ -31,6 +31,7 @@ const LoginScreen = ({user, setUser}) => {
     console.log('error in logging in', err)
   }
   }
+
   //to check if user is already logged in, navigate to homepage
 
   useEffect(() => {

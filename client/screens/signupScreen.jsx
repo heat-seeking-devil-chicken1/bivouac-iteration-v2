@@ -31,6 +31,8 @@ const SignupScreen = () => {
     let response = await axios.post('/api/users/signup', { email: email.value, password: password.value, firstName: firstName.value, lastName: lastName.value, location: location.value}, { proxy:{
     host: 'localhost',
     port: 3000}})
+    setSuccess(true);
+    navigate("/")
 
     //if database post is successful, set success flag to true That will re-route to login 
     //response.statusText === 'OK' && setSuccess(true)
@@ -41,7 +43,7 @@ const SignupScreen = () => {
     if (localStorage.getItem('user')) {
       navigate("/");
     }
-  }, []);
+  }, [success]);
 
   return (
     <div className="signupBackground">
@@ -59,6 +61,7 @@ const SignupScreen = () => {
           <option value="texas">Texas</option>
           <option value="oregon">Oregon</option>
           <option value="california">California</option>
+          <option value="california">New York</option>
         </select>
         <input className="signupInputs" type="email" id="email" name="email" placeholder="Email" required />
         <input className="signupInputs" type="password" id="password" name="password" placeholder="Password" required />
