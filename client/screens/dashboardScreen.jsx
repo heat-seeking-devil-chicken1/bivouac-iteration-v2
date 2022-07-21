@@ -104,9 +104,9 @@ const deleteHikes = async (hikeID) => {
 //   }
 // };
 
-// useEffect(() => {
-//   getHikes();
-// }, []);
+useEffect(() => {
+  getHikes();
+}, []);
 
 //console.log('in dashboard screen', {hikesData})
 console.log('started dashboard')

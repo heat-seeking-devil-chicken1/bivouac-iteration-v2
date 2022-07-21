@@ -23,7 +23,7 @@ const LoginScreen = ({user, setUser}) => {
     //body includes email, password
     localStorage.setItem(
       'user',
-      JSON.stringify({ ...response.data, password: "" })
+      JSON.stringify({ ...response.data})
     );
     navigate('/');
   }

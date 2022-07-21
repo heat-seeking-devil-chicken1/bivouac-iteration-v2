@@ -11,7 +11,6 @@ const RecsCard = ({hikeInfo}) => {
     latitude,
     longitude,
   } = hikeInfo;
-
   const saveFave = async (e) => {
     // used to prevent Form setting default
     e.preventDefault();
@@ -27,7 +26,6 @@ const RecsCard = ({hikeInfo}) => {
       latitude,
       longitude,
     };
-  
     console.log('before put request to add fave');
     try {
       const response = await axios.put(`/api/users/saveFave/${userid}`, body, { proxy: {
@@ -43,8 +41,14 @@ const RecsCard = ({hikeInfo}) => {
   return (
     <div className='recsCard'>
       <div>Title: {title}</div>
-      <div>Location: {location}</div>
-      <div>Duration: {duration}</div>
+      {location &&(
+        <div>Location: {location}</div>
+      )}
+      {/* <div>Location: {location}</div> */}
+      {duration &&(
+        <div>Duration: {duration}</div>
+      )}
+      
       <div>Description: {shortDescription}</div>
       <form>
         <input type='submit' name='submit' value='Add to Favorites' onClick={saveFave}/>
