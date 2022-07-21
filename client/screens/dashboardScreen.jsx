@@ -12,7 +12,7 @@ import { BrowserRouter as Router, Navigate, Route, Routes, Link } from "react-ro
 const DashboardScreen = () => {
   const [hikesData, setHikesData] = useState([]);
   const [userData, setUserData] = useState([]);
-  const [showDashboard, setShowDashboard] = useState('');
+  const [showDashboard, setShowDashboard] = useState('hikes');
 
   const user = JSON.parse(localStorage.getItem('user'));
 
