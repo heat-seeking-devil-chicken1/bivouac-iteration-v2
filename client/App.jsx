@@ -32,6 +32,7 @@ export function ProtectedRoute(props){
 
   if (localStorage.getItem('user'))
   { 
+    console.log("props.children",   props.children)
     return props.children
     
   } else {

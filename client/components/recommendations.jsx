@@ -5,14 +5,15 @@ import RecsCard from './recsCard.jsx'
 
 const Recommendations = () => {
   const [recsData, setRecsData] = useState([]);
+  const [state, setStateInfo] = useState({state: ''});
 
   const getRecs = async (e) => {
 
     //for forms, use preventDefault to prevent submitting from automatically refreshing the page
     e.preventDefault();
     const state = document.getElementById('state');
-    console.log('state', state)
-    console.log('state.value', state.value)
+    // console.log('state', state)
+    // console.log('state.value', state.value)
 
     //incorporate state code in URL for get request
     const endpointURL = `https://developer.nps.gov/api/v1/thingstodo?stateCode=${state.value}&q=hiking&limit=5&api_key=m7NetROTa7quh7nEX2sZ7nTCAffLiUQ4zGGhYJ5b`;
@@ -20,9 +21,9 @@ const Recommendations = () => {
     try {
       const recsResponse = await axios.get(endpointURL);
       //store response object.data which is a huge array of individual hike objects
-      console.log('recsResponse.data: ', recsResponse)
+      // console.log('recsResponse.data: ', recsResponse)
       setRecsData(recsResponse.data.data);
- 
+      setStateInfo({'state': state.value});
     }
     catch (error){
       console.log('error in getRecs function: ', error)
@@ -49,7 +50,7 @@ const Recommendations = () => {
       </form>
       { recsData.length > 0 && (
         recsData.map((hikeInfo) => (
-          <RecsCard key={uuid()} hikeInfo={hikeInfo} />
+          <RecsCard key={uuid()} hikeInfo={hikeInfo} stateInfo={state}/>
         ))
       )}
       { recsData.length === 0 && (

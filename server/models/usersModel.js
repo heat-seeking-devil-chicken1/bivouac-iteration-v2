@@ -21,7 +21,7 @@ const UserSchema = new mongoose.Schema({
   password : { type : String/*, required : true*/ }, //turned off required. Google data does not have all the required UserSchema fields
   googleId: {type: String},
   favorite: [
-    {title: {type: String, required: false}, shortDescription: {type: String, required : false}, state: { type : String, required : true}, duration: { type : String, required : false}, latitude: {type: String, required: false}, longitude: {type: String, required: false}, location: {type: String, required: false}}
+    {title: {type: String, required: false}, shortDescription: {type: String, required : false}, state: { type : String, required : true}, duration: { type : String, required : false}, latitude: {type: String, required: false}, longitude: {type: String, required: false}, location: {type: String, required: false}, images: {type: String, required: false}}
   ]
 });
 

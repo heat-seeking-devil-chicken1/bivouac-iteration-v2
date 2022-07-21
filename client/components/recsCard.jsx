@@ -1,17 +1,23 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 
-const RecsCard = ({hikeInfo}) => {
+const RecsCard = ({hikeInfo, stateInfo}) => {
+  // console.log('hikeInfo.images', hikeInfo.images[0].url)
+  // console.log('stateInfo:', stateInfo)
   const {
     title,
-    state,
     location,
     duration,
     shortDescription,
     latitude,
     longitude,
+    images
   } = hikeInfo;
+  const image = hikeInfo.images[0].url;
+  const {state} = stateInfo;
+  // console.log('state:', state);
 
+  
   const saveFave = async (e) => {
     // used to prevent Form setting default
     e.preventDefault();
@@ -26,8 +32,9 @@ const RecsCard = ({hikeInfo}) => {
       shortDescription,
       latitude,
       longitude,
+      images
     };
-  
+    // console.log('state inside the saveFave:', state)
     console.log('before put request to add fave');
     try {
       const response = await axios.put(`/api/users/saveFave/${userid}`, body, { proxy: {
@@ -41,11 +48,18 @@ const RecsCard = ({hikeInfo}) => {
   }
   console.log('resCards stared running')
   return (
-    <div className='recsCard'>
-      <div>Title: {title}</div>
-      <div>Location: {location}</div>
-      <div>Duration: {duration}</div>
-      <div>Description: {shortDescription}</div>
+    <div className='recFavCard'>
+      <h3>{title}</h3>
+      <img className='images' src={image}></img>
+      {location &&(
+        <div><span>Location:</span> {location}</div>
+      )}
+      {/* <div>Location: {location}</div> */}
+      {duration &&(
+        <div><span>Duration:</span> {duration}</div>
+      )}
+      
+      <div><span>Description:</span> {shortDescription}</div>
       <form>
         <input type='submit' name='submit' value='Add to Favorites' onClick={saveFave}/>
       </form>

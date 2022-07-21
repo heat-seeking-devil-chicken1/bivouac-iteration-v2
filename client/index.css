@@ -5,6 +5,7 @@
   margin: 0;
   padding: 0;
   font-family: 'Quicksand', sans-serif;
+  
 }
 
 body{
@@ -16,6 +17,7 @@ body{
   color: rgb(62, 64, 66);
   background-color: rgb(166, 166, 166);
   background-image: url('../assets/lake.jpg');
+  height: 100%;
 }
 
 h1, h2, h3, h4, h5 {font-family: 'Alegreya', serif;
@@ -146,6 +148,44 @@ font-size: 43px;}
   z-index: 1;
 }
 
+.images {
+  width: 500px;
+  margin: 10px;
+}
+
+.recFavCard {
+  margin: 30px;
+  padding: 20px;
+  /* border: 1px solid black; */
+  border-radius: 20px;
+  background-color:rgb(250, 235, 215);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align:center; 
+  box-shadow: rgb(62, 64, 66) 0px 11px 17px -12px;
+}
+
+.recFavCard span {
+  font-weight: bold;
+  font-size: 20px;
+  /* text-align: center; */
+}
+.recFavCard div {
+  text-align: center;
+  max-width: 700px; 
+}
+
+.recFavCard input{
+  padding: 10px 30px;
+  border-radius: 5px;
+  margin-top: 10px;
+  border: 1px solid grey;
+}
+/* button:focus{
+  background:olive;
+} */
+
 #hikeCardContainer{
   display: flex;
   flex-direction: column;
@@ -161,7 +201,8 @@ font-size: 43px;}
   align-items: center;
   text-align: center;
   border-radius: 20px;
-  background-color: rgba(255, 255, 255, 0.451);
+  background-color: rgb(250, 235, 215);
+  /* background-color: rgba(255, 255, 255, 0.451); */
   box-shadow: rgb(62, 64, 66) 0px 11px 17px -12px;
   margin: 20px;
   padding: 20px;
@@ -266,3 +307,4 @@ transform: scale(1.4) skewX(-0.4deg);
   font-weight: bold;
   font-family: 'Roboto',arial,sans-serif;
 }
+

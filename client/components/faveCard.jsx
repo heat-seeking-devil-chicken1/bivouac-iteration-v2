@@ -11,7 +11,7 @@ const FaveCard = ({favesInfo}) => {
     latitude,
     longitude,
   } = favesInfo;
-  
+  // console.log('state:', state);
   const deleteFave = async (e) => {
     // used to prevent Form setting default
     e.preventDefault();
@@ -39,8 +39,10 @@ const FaveCard = ({favesInfo}) => {
   }
   // console.log('faveCards started running')
   return (
-    <div className='faveCard'>
-      {title} Location: {location}, {state}, Lat: {latitude} Long: {longitude} Duration: {duration} <br/>
+    <div className='faveCard recFavCard'>
+      <div>{title}</div> 
+      <div>Location: {location}, {state} </div>
+      <div>Duration: {duration} </div>
       Description: {shortDescription}
       <form>
         <input type='submit' name='submit' value='Delete' onClick={deleteFave}/>

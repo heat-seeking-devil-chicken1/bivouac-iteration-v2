@@ -116,7 +116,7 @@ userController.deleteOneFavorite = async (req, res, next) => {
   try {
     let deletedFavorite = await User.findByIdAndUpdate(
       userid, 
-      {$pull: {favorite: {_id: faveid}}})
+      {$pull: {favorite: {_id: faveid}}});
       // {$pull: {"favorite.$._id": faveid}},
       // {new: true});
     console.log('deleted the fave successfully')
