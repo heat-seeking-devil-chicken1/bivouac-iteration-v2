@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
-const GoogleStrategy = require('passport-google-oidc');
+const GoogleStrategy = require('passport-google-oauth2').Strategy;
 
 // enables us to pull information from .env file
 require('dotenv').config();
@@ -24,7 +24,7 @@ passport.use(new GoogleStrategy(
 
 // auth with google
 router.get('/google', passport.authenticate('google', { scope:
-  [ 'email', 'profile' ]
+  [ 'profile' ]
 }));
 
 // callback route for google to redirect to
