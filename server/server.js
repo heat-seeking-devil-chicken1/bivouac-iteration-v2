@@ -19,7 +19,7 @@ app.use(session({
   saveUninitialized: false,
 }));
 
-app.use('/api/login', authRouter);
+app.use('/api/auth', authRouter);
 app.use("/api/users", userRoute);
 app.use('/api/hikes', hikeRoute);
 
