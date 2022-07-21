@@ -40,7 +40,8 @@ const FaveCard = ({favesInfo}) => {
   // console.log('faveCards started running')
   return (
     <div className='faveCard'>
-      {title} Location: {location}{latitude}{longitude} Duration: {duration} Description: {shortDescription}
+      {title} Location: {location}, {state}, Lat: {latitude} Long: {longitude} Duration: {duration} <br/>
+      Description: {shortDescription}
       <form>
         <input type='submit' name='submit' value='Delete' onClick={deleteFave}/>
       </form>
@@ -50,12 +51,12 @@ const FaveCard = ({favesInfo}) => {
 
 export default FaveCard;
 
-/*title: ‘string’,
-shortDescription:’string’,
+/*title: 'string',
+shortDescription:'string',
 state
-duration: ‘string’
-latitude:'string’
-longitude:’string’
-location:’string’
+duration: 'string'
+latitude:'string'
+longitude:'string'
+location:'string'
 */
   

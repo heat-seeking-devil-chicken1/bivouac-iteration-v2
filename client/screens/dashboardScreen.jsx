@@ -12,7 +12,7 @@ import { BrowserRouter as Router, Navigate, Route, Routes, Link } from "react-ro
 const DashboardScreen = () => {
   const [hikesData, setHikesData] = useState([]);
   const [userData, setUserData] = useState([]);
-  const [showDashboard, setShowDashboard] = useState('');
+  const [showDashboard, setShowDashboard] = useState('hikes');
 
   const user = JSON.parse(localStorage.getItem('user'));
 
@@ -104,9 +104,9 @@ const deleteHikes = async (hikeID) => {
 //   }
 // };
 
-// useEffect(() => {
-//   getHikes();
-// }, []);
+useEffect(() => {
+  getHikes();
+}, []);
 
 //console.log('in dashboard screen', {hikesData})
 console.log('started dashboard')
