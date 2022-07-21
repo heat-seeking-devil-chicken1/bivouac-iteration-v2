@@ -37,7 +37,6 @@
     "nodemon": "^2.0.19",
     "passport": "^0.6.0",
     "passport-google-oauth2": "^0.2.0",
-    "passport-google-oidc": "^0.1.0",
     "react": "^18.2.0",
     "react-background-video-player": "^1.1.8",
     "react-dom": "^18.2.0",

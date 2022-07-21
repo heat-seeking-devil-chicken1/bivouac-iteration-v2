@@ -23,8 +23,8 @@ passport.use(new GoogleStrategy(
 ));
 
 // auth with google
-router.get('/google', passport.authenticate('google', {
-  scope: ['profile']
+router.get('/google', passport.authenticate('google', { scope:
+  [ 'email', 'profile' ]
 }));
 
 // callback route for google to redirect to
