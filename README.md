@@ -41,21 +41,26 @@ Your go to mobile hike tracking application
 <a><img src="./docs/assests/images/git4.png"/></a>
 
 ## Saving and Uploading Code
-1. Before pushing code to GitHub. Merge any updates from `dev`. Solve any conflicts (aka differences) between `dev` and your local branch 
+
+1. ADD AND COMMIT CHANGES BEFORE PROCEEDING TO STEP 2
+- `git add`
+- `git commit -m <comments>`
+
+2. Before pushing code to GitHub. Merge any updates from `dev`. Solve any conflicts (aka differences) between `dev` and your local branch 
 - `git checkout dev` (locally switch to dev branch)
 - `git pull origin dev` (pull updates of dev down to your localc system)
 - `git checkout <YOUR BRANCH>` (switch back to your branch locally)
 - `git merge dev` (brings dev int your branch locally)
 - Resolve conflicts or `:q` if there aren't any 
 
-2. Git add & git commit your files. MAKE SURE YOU ARE ON YOUR BRANCH BEFORE COMMITING! (use `git branch` to check)
+3. Git add & git commit your files. MAKE SURE YOU ARE ON YOUR BRANCH BEFORE COMMITING! (use `git branch` to check)
 - `git add <YOUR FILES>`
 - `git commit -m"<YOUR COMMENT>`
 
-3. Push files to your branch
+4. Push files to your branch
 - `git push origin <YOUR BRANCH>`
 
-4. Create a pull request on GitHub
+5. Create a pull request on GitHub
   - base: dev <-- compare: [YOUR BRANCH NAME]
   - add comments
   - add reviewers (on the right sidebar)
@@ -63,4 +68,4 @@ Your go to mobile hike tracking application
 
 <a><img src="./docs/assests/images/git6.png"/></a>
 
-5. Review, Approve and Merge pull request to `dev` branch
+6. Review, Approve and Merge pull request to `dev` branch
