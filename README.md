@@ -1,5 +1,5 @@
 # bivouac
-Your go to mobile hike tracking application
+Track each hike you have completed and search for new locations near you.
 
 # Iteration Project GitHub Tutorial
 
